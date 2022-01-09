@@ -1,0 +1,4 @@
+[dap-debug-start]
+command:python=bash ./run.sh
+errorformat=
+output=terminal
