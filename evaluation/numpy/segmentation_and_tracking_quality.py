@@ -134,7 +134,7 @@ class STQuality(object):
     """Updates or creates the confusion matrix."""
     if cm is None:
       cm = np.zeros((self._confusion_matrix_size, self._confusion_matrix_size),
-                    dtype=np.int64)
+                    dtype=np.float64)
     idxs = np.stack([np.reshape(y_true, [-1]),
                      np.reshape(y_pred, [-1])],
                     axis=0)
@@ -285,7 +285,7 @@ class STQuality(object):
     # Remove fp from confusion matrix for the void/ignore class.
     total_confusion = np.zeros(
         (self._confusion_matrix_size, self._confusion_matrix_size),
-        dtype=np.int64)
+        dtype=np.float64)
     for index, confusion in enumerate(
         self._iou_confusion_matrix_per_sequence.values()):
       removal_matrix = np.zeros_like(confusion)
